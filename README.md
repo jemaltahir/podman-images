@@ -39,7 +39,7 @@ Ctrl-p,Ctrl-q
 ```
 
 ### C Rootful run rootless process
-- It is not harmfull to the host pc
+- Care full if the ID exisits on the host system (UID mapping)
 ```
 [centos@tjtestvmpodman ~]$ sudo podman run -it -u 55 --rm quay.io/quay/busybox sh 
 ~ $ whoami 
@@ -53,9 +53,8 @@ Ctrl-p,Ctrl-q
 ```
 [centos@tjtestvmpodman ~]$ ps aux | grep sleep
 [centos@tjtestvmpodman ~]$ ps fax
-
-
 ### 
+
   ```
   
       podman run --name=logger -v /dev/log:/dev/log --rm ubuntu logger holla
