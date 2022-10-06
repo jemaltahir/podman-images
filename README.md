@@ -54,8 +54,30 @@ Ctrl-p,Ctrl-q
 [centos@tjtestvmpodman ~]$ ps aux | grep sleep
 [centos@tjtestvmpodman ~]$ ps fax
 ```
-### Example of podman volume
 
+### D Rootless run rootless process
+- Openshift loves it :) 
+
+```
+[centos@tjtestvmpodman ~]$ podman run -it -u 55 --rm quay.io/quay/busybox sh
+~ $ whoami 
+55
+~ $ sleep 4000 &
+~ $ ps aux
+PID   USER     TIME  COMMAND
+    1 55        0:00 sh
+    8 55        0:00 sleep 4000
+    9 55        0:00 ps aux
+```
+Ctrl-p,Ctrl-q
+```
+~ $ [centos@tjtestvmpodman ps aux | grep sleep
+root       39147  0.0  0.0      0     0 pts/0    Z    02:27   0:00 [sleep] <defunct>
+root       39149  0.0  0.0      0     0 pts/0    Z    02:27   0:00 [sleep] <defunct>
+100054     39392  0.0  0.0   1300     4 pts/0    S    02:53   0:00 sleep 4000
+centos     39395  0.0  0.0 221940  1188 pts/0    S+   02:54   0:00 grep --color=auto sleep
+```
+### Example of podman volume
   ```
       podman run --name=logger -v /dev/log:/dev/log --rm ubuntu logger holla
       sudo journalctl
