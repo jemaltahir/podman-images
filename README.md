@@ -93,6 +93,13 @@ sudo podman ps -a --pod
 sudo podman run -dt --pod youthful_jones docker.io/library/alpine:latest top
 sudo podman pod ps
 sudo podman ps -a --pod
+
+Generate k8s yaml
+--------------------------
+podman run -dt --pod new:nginx -p 32597:80 quay.io/libpod/alpine_nginx:latest
+$ curl http://localhost:32597
+podman generate kube -s nginx
+
 ```
 ## 4 Customizing binami images.
 ### Matomo template use case
