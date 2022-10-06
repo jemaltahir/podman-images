@@ -53,10 +53,10 @@ Ctrl-p,Ctrl-q
 ```
 [centos@tjtestvmpodman ~]$ ps aux | grep sleep
 [centos@tjtestvmpodman ~]$ ps fax
-### 
+```
+### Example of podman volume
 
   ```
-  
       podman run --name=logger -v /dev/log:/dev/log --rm ubuntu logger holla
       sudo journalctl
   ```
@@ -64,4 +64,6 @@ Ctrl-p,Ctrl-q
 ## 3 Creating pods using podman (genearte YAML for k8s + OpenShift).
 
 ## 4 Customizing binami images.
+### Matomo template use case
+### Spark template use case
 
