@@ -79,12 +79,21 @@ centos     39395  0.0  0.0 221940  1188 pts/0    S+   02:54   0:00 grep --color=
 ```
 ### Example of podman volume
   ```
-      podman run --name=logger -v /dev/log:/dev/log --rm ubuntu logger holla
-      sudo journalctl
+  podman run --name=logger -v /dev/log:/dev/log --rm ubuntu logger holla
+  sudo journalctl
   ```
-
+### Summary
+- Rootless conatiners do not have IP address, can not run ports >1024 , and the can be reachable using portforwarding.
 ## 3 Creating pods using podman (genearte YAML for k8s + OpenShift).
-
+```
+sudo podman pod create --help
+sudo podman pod create
+sudo podman pod list
+sudo podman ps -a --pod
+sudo podman run -dt --pod youthful_jones docker.io/library/alpine:latest top
+sudo podman pod ps
+sudo podman ps -a --pod
+```
 ## 4 Customizing binami images.
 ### Matomo template use case
 ### Spark template use case
