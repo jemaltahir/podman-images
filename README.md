@@ -101,7 +101,4 @@ $ curl http://localhost:32597
 podman generate kube -s nginx
 
 ```
-## 4 Customizing binami images.
-### Matomo template use case
-### Spark template use case
 
